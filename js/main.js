@@ -1,5 +1,4 @@
 const API_URL = "http://localhost:8080";
-const MODEL_BASE_URL = "https://3dviewer.net/index.html";
 document.addEventListener("submit", function (event) {
   event.preventDefault();
   const data = Object.fromEntries(new FormData(event.target))
@@ -22,6 +21,5 @@ document.addEventListener("submit", function (event) {
     .catch(function (error) {
       console.warn(error);
     });
-    console.log(data)
-  window.location.href = `${MODEL_BASE_URL}#model=${data.modelUrl}`
+  window.location.href = `/model.html#${data.modelUrl}`
 });
