@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:8080";
+const API_URL = "https://models3.herokuapp.com";
 document.addEventListener("submit", function (event) {
   event.preventDefault();
   const data = Object.fromEntries(new FormData(event.target))
@@ -16,10 +16,10 @@ document.addEventListener("submit", function (event) {
       return Promise.reject(response);
     })
     .then(function (data) {
-      console.log(data);
+      window.location.href = `/model.html#${data.modelUrl}`
     })
     .catch(function (error) {
       console.warn(error);
     });
-  window.location.href = `/model.html#${data.modelUrl}`
+
 });
